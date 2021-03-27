@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `TipoLogradouro` CASCADE;
 #   UNIQUE INDEX `siglaTipoLogradouro_UNIQUE` (`siglaTipoLogradouro` ASC) VISIBLE);
 
 CREATE TABLE IF NOT EXISTS `TipoLogradouro` (
-    `siglaTipoLogradouro` INT NOT NULL,
+    `siglaTipoLogradouro` VARCHAR(45) NOT NULL,
     `nomeLogradouro` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`siglaTipoLogradouro`)
 );
@@ -106,7 +106,7 @@ DROP TABLE IF EXISTS `Logradouro` CASCADE;
 CREATE TABLE IF NOT EXISTS `Logradouro` (
     `idLogradouro` INT NOT NULL AUTO_INCREMENT,
     `nomeLogradouro` VARCHAR(45) NOT NULL,
-    `TipoLogradouro_siglaTipoLogradouro` INT NOT NULL,
+    `TipoLogradouro_siglaTipoLogradouro` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idLogradouro`),
     FOREIGN KEY (`TipoLogradouro_siglaTipoLogradouro`) REFERENCES `TipoLogradouro`(`siglaTipoLogradouro`)
 );
