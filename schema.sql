@@ -1,7 +1,7 @@
 -- -----------------------------------------------------
 -- Schema trabbd5
 -- -----------------------------------------------------
-DROP SCHEMA `trabbd5`;
+DROP SCHEMA if exists `trabbd5`;
 CREATE SCHEMA IF NOT EXISTS `trabbd5` DEFAULT CHARACTER SET utf8 ;
 USE `trabbd5` ;
 
@@ -9,7 +9,7 @@ USE `trabbd5` ;
 -- -----------------------------------------------------
 -- Table `UnidadeFederaçao`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UnidadeFederacao` CASCADE;
+DROP TABLE IF EXISTS `UnidadeFederativa` CASCADE;
 
 CREATE TABLE IF NOT EXISTS `UnidadeFederativa` (
     `siglaUF` VARCHAR(5) NOT NULL,
