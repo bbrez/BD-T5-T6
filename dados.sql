@@ -3,8 +3,8 @@
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trabbd5`;
-INSERT INTO `unidadefederativa` (`siglaUF`, `nomeUF`) VALUES ('PR', 'Paraná');
-INSERT INTO `unidadefederativa` (`siglaUF`, `nomeUF`) VALUES ('RS', 'Rio Grande do Sul');
+INSERT INTO `UnidadeFederativa` (`siglaUF`, `nomeUF`) VALUES ('PR', 'Paraná');
+INSERT INTO `UnidadeFederativa` (`siglaUF`, `nomeUF`) VALUES ('RS', 'Rio Grande do Sul');
 
 COMMIT;
 
@@ -81,9 +81,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trabbd5`;
-INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (1, 'Leonardo Benitez de Freitas', '27/10/1999', 'M', 'Solteiro', '102.440.309-28', 137, NULL, 1);
-INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (2, 'Bruno de Castro Brezolin', '27/06/1998', 'M', 'Casado', '325.781.964-56', 1532, 'Apartamento 304', 2);
-INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (3, 'Eduardo Pereira', '12/03/1993', 'M', 'Solteiro', '201.354.846-14', 215, NULL, DEFAULT);
+INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (1, 'Leonardo Benitez de Freitas', '1999-10-27', 'M', 'Solteiro', '102.440.309-28', 137, NULL, 1);
+INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (2, 'Bruno de Castro Brezolin', '1998-06-27', 'M', 'Casado', '325.781.964-56', 1532, 'Apartamento 304', 2);
+INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (3, 'Eduardo Pereira', '1993-03-12', 'M', 'Solteiro', '201.354.846-14', 215, NULL, 3);
 
 COMMIT;
 
