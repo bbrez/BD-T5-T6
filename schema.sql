@@ -1,6 +1,7 @@
 -- -----------------------------------------------------
 -- Schema trabbd5
 -- -----------------------------------------------------
+DROP SCHEMA `trabbd5`;
 CREATE SCHEMA IF NOT EXISTS `trabbd5` DEFAULT CHARACTER SET utf8 ;
 USE `trabbd5` ;
 
@@ -8,7 +9,7 @@ USE `trabbd5` ;
 -- -----------------------------------------------------
 -- Table `UnidadeFederaçao`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `UnidadeFederacao` ;
+DROP TABLE IF EXISTS `UnidadeFederacao` CASCADE;
 
 CREATE TABLE IF NOT EXISTS `UnidadeFederativa` (
     `siglaUF` VARCHAR(5) NOT NULL,
@@ -26,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `UnidadeFederativa` (
 -- -----------------------------------------------------
 -- Table `Cidade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Cidade` ;
+DROP TABLE IF EXISTS `Cidade` CASCADE;
 
 CREATE TABLE IF NOT EXISTS  `Cidade` (
     `idCidade` INT NOT NULL AUTO_INCREMENT,
@@ -53,7 +54,7 @@ CREATE TABLE IF NOT EXISTS  `Cidade` (
 -- -----------------------------------------------------
 -- Table `Bairro`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Bairro` ;
+DROP TABLE IF EXISTS `Bairro` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Bairro` (
 #   `idBairro` INT NOT NULL AUTO_INCREMENT,
@@ -70,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `Bairro` (
 -- -----------------------------------------------------
 -- Table `TipoLogradouro`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TipoLogradouro` ;
+DROP TABLE IF EXISTS `TipoLogradouro` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `TipoLogradouro` (
 #   `siglaTipoLogradouro` INT NOT NULL,
@@ -79,7 +80,7 @@ DROP TABLE IF EXISTS `TipoLogradouro` ;
 #   UNIQUE INDEX `siglaTipoLogradouro_UNIQUE` (`siglaTipoLogradouro` ASC) VISIBLE);
 
 CREATE TABLE IF NOT EXISTS `TipoLogradouro` (
-    `siglaTipoLogradouro` INT NOT NULL,
+    `siglaTipoLogradouro` VARCHAR(45) NOT NULL,
     `nomeLogradouro` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`siglaTipoLogradouro`)
 );
@@ -87,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `TipoLogradouro` (
 -- -----------------------------------------------------
 -- Table `Logradouro`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Logradouro` ;
+DROP TABLE IF EXISTS `Logradouro` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Logradouro` (
 #   `idLogradouro` INT NOT NULL AUTO_INCREMENT,
@@ -105,7 +106,7 @@ DROP TABLE IF EXISTS `Logradouro` ;
 CREATE TABLE IF NOT EXISTS `Logradouro` (
     `idLogradouro` INT NOT NULL AUTO_INCREMENT,
     `nomeLogradouro` VARCHAR(45) NOT NULL,
-    `TipoLogradouro_siglaTipoLogradouro` INT NOT NULL,
+    `TipoLogradouro_siglaTipoLogradouro` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`idLogradouro`),
     FOREIGN KEY (`TipoLogradouro_siglaTipoLogradouro`) REFERENCES `TipoLogradouro`(`siglaTipoLogradouro`)
 );
@@ -113,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `Logradouro` (
 -- -----------------------------------------------------
 -- Table `Endereço`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Endereço` ;
+DROP TABLE IF EXISTS `Endereço` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Endereço` (
 #   `idEndereço` INT NOT NULL AUTO_INCREMENT,
@@ -157,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `Endereco` (
 -- -----------------------------------------------------
 -- Table `Paciente`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Paciente` ;
+DROP TABLE IF EXISTS `Paciente` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Paciente` (
 #   `idPaciente` INT NOT NULL AUTO_INCREMENT,
@@ -195,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
 -- -----------------------------------------------------
 -- Table `Medico`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Medico` ;
+DROP TABLE IF EXISTS `Medico` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Medico` (
 #   `idMedico` INT NOT NULL AUTO_INCREMENT,
@@ -214,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `Medico` (
 -- -----------------------------------------------------
 -- Table `Diagnostico`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Diagnostico` ;
+DROP TABLE IF EXISTS `Diagnostico` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Diagnostico` (
 #   `idDiagnostico` INT NOT NULL AUTO_INCREMENT,
@@ -231,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `Diagnostico` (
 -- -----------------------------------------------------
 -- Table `Consulta`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Consulta` ;
+DROP TABLE IF EXISTS `Consulta` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Consulta` (
 #   `idConsulta` INT NOT NULL AUTO_INCREMENT,
@@ -264,6 +265,7 @@ DROP TABLE IF EXISTS `Consulta` ;
 
 CREATE TABLE IF NOT EXISTS `Consulta` (
     `idConsulta` INT NOT NULL AUTO_INCREMENT,
+    `nroConsulta` INT NOT NULL,
     `dataConsulta` DATE NOT NULL,
     `obsDiagnostico` VARCHAR(45) NOT NULL,
     `Paciente_idPaciente` INT NOT NULL,
@@ -278,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `Consulta` (
 -- -----------------------------------------------------
 -- Table `TipoExame`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `TipoExame` ;
+DROP TABLE IF EXISTS `TipoExame` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `TipoExame` (
 #   `idTipoExame` INT NOT NULL AUTO_INCREMENT,
@@ -295,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `TipoExame` (
 -- -----------------------------------------------------
 -- Table `Exames`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Exames` ;
+DROP TABLE IF EXISTS `Exames` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Exames` (
 #   `idExames` INT NOT NULL AUTO_INCREMENT,
@@ -320,6 +322,7 @@ DROP TABLE IF EXISTS `Exames` ;
 
 CREATE TABLE IF NOT EXISTS `Exames` (
     `idExames` INT NOT NULL  AUTO_INCREMENT,
+    `nroExame` INT NOT NULL,
     `dataExame` DATE NOT NULL,
     `TipoExame_idTipoExame` INT NOT NULL,
     `Consulta_idConsulta` INT NOT NULL,
@@ -331,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `Exames` (
 -- -----------------------------------------------------
 -- Table `DDI`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `DDI` ;
+DROP TABLE IF EXISTS `DDI` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `DDI` (
 #   `numDDI` VARCHAR(45) NOT NULL,
@@ -346,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `DDI` (
 -- -----------------------------------------------------
 -- Table `DDD`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `DDD` ;
+DROP TABLE IF EXISTS `DDD` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `DDD` (
 #   `numDDD` VARCHAR(45) NOT NULL,
@@ -362,15 +365,15 @@ DROP TABLE IF EXISTS `DDD` ;
 
 CREATE TABLE IF NOT EXISTS `DDD` (
     `numDDD` VARCHAR(45) NOT NULL,
-    `DDDI_numDDI` VARCHAR(45) NOT NULL,
+    `DDI_numDDI` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`numDDD`),
-    FOREIGN KEY (`DDDI_numDDI`) REFERENCES `DDI`(`numDDI`)
+    FOREIGN KEY (`DDI_numDDI`) REFERENCES `DDI`(`numDDI`)
 );
 
 -- -----------------------------------------------------
 -- Table `Telefone`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Telefone` ;
+DROP TABLE IF EXISTS `Telefone` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `Telefone` (
 #   `idTelefone` INT NOT NULL AUTO_INCREMENT,
@@ -405,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `Telefone` (
 -- -----------------------------------------------------
 -- Table `E-Mail`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `E-Mail` ;
+DROP TABLE IF EXISTS `E-Mail` CASCADE;
 
 # CREATE TABLE IF NOT EXISTS `E-Mail` (
 #   `idEmail` INT NOT NULL AUTO_INCREMENT,
@@ -420,9 +423,9 @@ DROP TABLE IF EXISTS `E-Mail` ;
 #     ON DELETE NO ACTION
 #     ON UPDATE NO ACTION);
 
-CREATE TABLE IF NOT EXISTS `EMail` (
+CREATE TABLE IF NOT EXISTS `E-Mail` (
     `idEmail` INT NOT NULL AUTO_INCREMENT,
-    `EMail` VARCHAR(45) NOT NULL,
+    `E-Mail` VARCHAR(45) NOT NULL,
     `Paciente_idPaciente` INT NOT NULL,
     PRIMARY KEY (`idEmail`),
     FOREIGN KEY (`Paciente_idPaciente`) REFERENCES `Paciente`(`idPaciente`)
