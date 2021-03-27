@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
     `estadoCivil` VARCHAR(45) NOT NULL,
     `docIdentidade` VARCHAR(45) NOT NULL,
     `numeroEndereco` INT NOT NULL,
-    `complementoEndereco` VARCHAR(45) NOT NULL,
+    `complementoEndereco` VARCHAR(45),
     `Endereco_idEndereco` INT NOT NULL,
     PRIMARY KEY (`idPaciente`),
     FOREIGN KEY (`Endereco_idEndereco`) REFERENCES `Endereco`(`idEndereco`)
