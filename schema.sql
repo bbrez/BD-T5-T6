@@ -1,7 +1,7 @@
 -- -----------------------------------------------------
 -- Schema trabbd5
 -- -----------------------------------------------------
-DROP SCHEMA if exists `trabbd5`;
+DROP SCHEMA IF EXISTS `trabbd5`;
 CREATE SCHEMA IF NOT EXISTS `trabbd5` DEFAULT CHARACTER SET utf8 ;
 USE `trabbd5` ;
 
