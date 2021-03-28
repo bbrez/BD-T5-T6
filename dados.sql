@@ -84,6 +84,8 @@ USE `trabbd5`;
 INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (1, 'Leonardo Benitez de Freitas', '1999-10-27', 'M', 'Solteiro', '102.440.309-28', 137, NULL, 1);
 INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (2, 'Bruno de Castro Brezolin', '1998-06-27', 'M', 'Casado', '325.781.964-56', 1532, 'Apartamento 304', 2);
 INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (3, 'Eduardo Pereira', '1993-03-12', 'M', 'Solteiro', '201.354.846-14', 215, NULL, 3);
+INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (4, 'Melissa Santos', '1995-08-13', 'F', 'Casado(a)', '745.369.147-72', 378, 'Apartamento 102', 3);
+INSERT INTO `Paciente` (`idPaciente`, `Nome`, `Nascimento`, `Sexo`, `estadoCivil`, `docIdentidade`, `numeroEndereco`, `complementoEndereco`, `Endereco_idEndereco`) VALUES (5, 'Maria Zunilda Benitez', '1970-05-09', 'F', 'Casado(a)', '804.584.409-49', 137, NULL, 1);
 
 COMMIT;
 
@@ -198,13 +200,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trabbd5`;
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (1, '', 1);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (2, DEFAULT, 1);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (3, DEFAULT, 2);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (4, DEFAULT, 3);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (5, DEFAULT, 3);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (6, DEFAULT, 4);
-INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (7, DEFAULT, 5);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (1, 'leobfritas@gmail.com', 1);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (2, 'leonardo@hotmail.com', 1);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (3, 'brunobrezolin@gmail.com', 2);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (4, 'edupereira@yahoo.com', 3);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (5, 'melsantos@hotmail.com', 3);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (6, 'mariazbenitez@gmail.com', 4);
+INSERT INTO `E-Mail` (`idEmail`, `E-Mail`, `Paciente_idPaciente`) VALUES (7, 'mariabenz@hotmail.com', 5);
 
 COMMIT;
 
