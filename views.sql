@@ -47,9 +47,12 @@ GROUP BY idConsulta;
 
 SELECT *
 FROM testeCovid;
+
 SELECT *
 FROM pacienteMedico;
+
 SELECT *
 FROM pacienteAnoCidade;
+
 SELECT *
 FROM gigaView;
