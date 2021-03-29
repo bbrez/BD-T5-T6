@@ -28,25 +28,7 @@ FROM Paciente
 WHERE nomeCidade LIKE 'Foz do Iguaçu'
   AND EXTRACT(YEAR FROM dataConsulta) LIKE '2021';
 
-CREATE OR REPLACE VIEW fichaMedica
-AS
-SELECT nroConsulta,
-       dataConsulta,
-       obsDiagnostico,
-       Paciente_idPaciente                 AS idPaciente,
-       Medico_idMedico                     AS idMedico,
-       Diagnostico_idDiagnostico           AS idDiagnostico,
-       group_concat(idExames)              AS idExame,
-       group_concat(nroExame)              AS nroExame,
-       group_concat(dataExame)             AS dataExame,
-       group_concat(TipoExame_idTipoExame) AS tipoExame,
-       group_concat(Consulta_idConsulta)   AS idConsulta
-FROM Exames
-         LEFT JOIN Consulta ON Consulta_idConsulta = idConsulta
-GROUP BY idConsulta;
-
-
-CREATE OR REPLACE VIEW gigaView2EletrictBoogaloo AS
+CREATE OR REPLACE VIEW fichaMedica AS
 SELECT Paciente.idpaciente                                                          AS "Número do paciente",
        Paciente.nome                                                                as "Nome do Paciente",
        Paciente.nascimento                                                          as "Data de Nascimento",
@@ -92,6 +74,3 @@ FROM consultasFoz;
 
 SELECT *
 FROM fichaMedica;
-
-SELECT *
-FROM gigaView2EletrictBoogaloo;
