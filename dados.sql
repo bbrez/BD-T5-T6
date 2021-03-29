@@ -134,8 +134,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `trabbd5`;
-INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (1, 'teste rapido - covid19');
-INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (2, 'teste de sangue - dengue');
+INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (1, 'Teste de sangue - COVID-19');
+INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (2, 'teste rapido - covid19');
 INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (3, 'teste de saliva - h1n1');
 INSERT INTO `TipoExame` (`idTipoExame`, `nomeTipoExame`) VALUES (4, 'teste de medula - anemia');
 

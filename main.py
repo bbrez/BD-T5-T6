@@ -5,11 +5,11 @@ import pprint
 views = ['testeCovid', 'medicoResponsavel', 'consultasFoz', 'fichaMedica']
 
 
-def getView(cursor, view_name, param=None):
-    if param is None:
+def getView(cursor, view_name, conditional=None):
+    if conditional is None:
         cursor.execute("SELECT * FROM {}".format(view_name))
     else:
-        cursor.execute('SELECT * FROM {} WHERE {} LIKE \'{}\''.format(view_name, param[0], param[1]))
+        cursor.execute('SELECT * FROM {} {}'.format(view_name, conditional))
     return cursor.fetchall()
 
 
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     rodando = True
     while rodando:
-        print('1 - Pacientes que fizeram exame de sangue para detectar covid 19')
+        print('1 - Pacientes que fizeram exame de sangue para detectar COVID-19')
         print('2 - Pacientes que um determinado medico atendeu')
         print('3 - Pacientes que se consultaram em 2021 que moram em Foz do Iguaçu')
         print('4 - Ficha medica completa')
@@ -34,11 +34,22 @@ if __name__ == '__main__':
 
         selecao = int(input('Selecao: '))
 
-        if selecao == 2:
-            nome = input('Nome do Medico: ')
-            pprint.pprint(getView(cursor, views[selecao-1], ['nomeMedico', nome]))
+        if selecao == 1:
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeTipoExame LIKE \'Teste de sangue - COVID-19\''))
+
+        elif selecao == 2:
+            nome = '%'+input('Nome do Medico: ')+'%'
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeMedico LIKE \'{}\''.format(nome)))
+
+        elif selecao == 3:
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeCidade LIKE \'Foz do Iguaçu\' AND EXTRACT(YEAR FROM dataConsulta) LIKE \'2021\''))
+
+        elif selecao == 4:
+            pprint.pprint(getView(cursor, views[selecao-1]), width=240)
+
         elif selecao == 0:
             rodando = False
+            
         else:
             pprint.pprint(getView(cursor, views[selecao-1]))
 
