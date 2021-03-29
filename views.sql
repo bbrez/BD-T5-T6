@@ -10,15 +10,14 @@ FROM paciente
          INNER JOIN tipoexame t on e.TipoExame_idTipoExame = t.idTipoExame
 WHERE nomeTipoExame LIKE 'teste rapido - covid19';
 
-CREATE OR REPLACE VIEW pacienteMedico
+CREATE OR REPLACE VIEW medicoResponsavel
 AS
 SELECT idPaciente, nome, nomeMedico, crmMedico
 FROM paciente
          INNER JOIN consulta c on paciente.idPaciente = c.Paciente_idPaciente
-         INNER JOIN medico m on c.Medico_idMedico = m.idMedico
-WHERE nomeMedico LIKE 'Gabriel Pereira';
+         INNER JOIN medico m on c.Medico_idMedico = m.idMedico;
 
-CREATE OR REPLACE VIEW pacienteAnoCidade
+CREATE OR REPLACE VIEW consultasFoz
 AS
 SELECT idPaciente, nome, docIdentidade, dataConsulta, nomeCidade
 FROM paciente
@@ -28,7 +27,7 @@ FROM paciente
 WHERE nomeCidade LIKE 'Foz do Iguaçu'
   AND EXTRACT(YEAR FROM dataConsulta) LIKE '2021';
 
-CREATE OR REPLACE VIEW gigaView
+CREATE OR REPLACE VIEW fichaMedica
 AS
 SELECT nroConsulta,
        dataConsulta,
@@ -49,10 +48,12 @@ SELECT *
 FROM testeCovid;
 
 SELECT *
-FROM pacienteMedico;
+FROM medicoResponsavel
+WHERE nomeMedico LIKE 'Gabriel Pereira';
 
 SELECT *
-FROM pacienteAnoCidade;
+FROM consultasFoz;
 
 SELECT *
-FROM gigaView;
+FROM fichaMedica;
+

@@ -22,7 +22,6 @@ INSERT INTO `Cidade` (`idCidade`, `nomeCidade`, `UnidadeFederativa_siglaUF`) VAL
 
 COMMIT;
 
-
 -- -----------------------------------------------------
 -- Data for table `Bairro`
 -- -----------------------------------------------------
