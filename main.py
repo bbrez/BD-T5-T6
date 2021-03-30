@@ -17,7 +17,7 @@ if __name__ == '__main__':
     db = pymysql.connect(
         host="localhost",
         user="root",
-        password="5762",
+        password="geladeira0",
         database="trabbd5",
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -35,17 +35,17 @@ if __name__ == '__main__':
         selecao = int(input('Selecao: '))
 
         if selecao == 1:
-            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeTipoExame LIKE \'Teste de sangue - COVID-19\''))
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeTipoExame LIKE \'Teste de sangue - COVID-19\''), sort_dicts=False)
 
         elif selecao == 2:
             nome = '%'+input('Nome do Medico: ')+'%'
-            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeMedico LIKE \'{}\''.format(nome)))
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeMedico LIKE \'{}\''.format(nome)), sort_dicts=False)
 
         elif selecao == 3:
-            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeCidade LIKE \'Foz do Iguaçu\' AND EXTRACT(YEAR FROM dataConsulta) LIKE \'2021\''))
+            pprint.pprint(getView(cursor, views[selecao-1], 'WHERE nomeCidade LIKE \'Foz do Iguaçu\' AND EXTRACT(YEAR FROM dataConsulta) LIKE \'2021\''), sort_dicts=False)
 
         elif selecao == 4:
-            pprint.pprint(getView(cursor, views[selecao-1]), width=240)
+            pprint.pprint(getView(cursor, views[selecao-1]), width=120, sort_dicts=False)
 
         elif selecao == 0:
             rodando = False
